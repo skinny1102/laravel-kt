@@ -14,7 +14,8 @@ class ProductController extends Controller
     public function index()
     {
         //
-        return "Liệt kê sản phẩm";
+        $title = "Tất cả sản phẩm";
+        return view('product/pages-product')->with('title',$title);
     }
 
     /**
@@ -48,6 +49,9 @@ class ProductController extends Controller
     public function show($id)
     {
         //
+        $title = "Sản phẩm";
+
+        return view('product/product-details')->with('title',$title);
     }
 
     /**
