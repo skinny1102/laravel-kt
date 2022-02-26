@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Máy tính TG</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -21,30 +21,13 @@
         </style>
     </head>
     <body class="antialiased">
-    <div>
-        <ul>
-            <li><a href="{{route('show',['id'=>'oke']) }}" > Chuyen trang 1 </a> </li>
-            <li><a href="{{route('show',['id'=>2]) }}" > Chuyen trang 2 </a> </li>
-            <li><a href="{{route('show',['id'=>3]) }}" > Chuyen trang 3 </a> </li>
-            <li><a href="{{route('show',['id'=>4]) }}" > Chuyen trang 4 </a> </li>
-        </ul>
-        <h3><a href="/user" > Chuyen trang</a></h3>
-
-        <ul>
-            <li><a href="{{ route('user.show',['id'=>1 ,'branchId'=> 9999 ])}}" > Chuyen trang 1 </a> </li>
-            <li><a href="{{ route('user.show',['id'=>2,'branchId'=> 8888 ])}}" > Chuyen trang 2 </a> </li>
-            <li><a href="{{ route('user.show',['id'=>3,'branchId'=> 7777 ])}}" > Chuyen trang 3 </a> </li>
-            <li><a href="{{ route('user.show',['id'=>4,'branchId'=> 6666 ])}}" > Chuyen trang 4 </a> </li>
-        </ul>
-
-        <h3><a href="/user" > Product</a></h3>
-
-<ul>
-    <li><a href="{{ route('backend.user')}}" > Product  1 </a> </li>
-    <li><a href="{{ route('backend.product')}}" > Product  2 </a> </li>
-    <li><a href="{{ route('backend.category')}}" > Product  3 </a> </li>
-    <li><a href="{{ route('backend.news')}}" > Product  4 </a> </li>
-</ul>
-    </div>
+            <div class="container">
+                <h2>THANG NGUYEN HUU</h2>
+                <h3>WELLCOME</h3>
+            </div>
+            @php
+                $email = 'nguyenhuuthang@gmail.com'
+            @endphp
+            <x-sidebar title="Hoc laravel s" :email="$email"> </x-sidebar>
     </body>
 </html>
