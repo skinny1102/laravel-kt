@@ -23,7 +23,11 @@
     <body class="antialiased">
             <div class="container">
                 <h2>THANG NGUYEN HUU</h2>
-                <h3>WELLCOME</h3>
+                <h3>WELLCOME3</h3>
+                @foreach($category as $key=>$value)
+                <p> Đây là id : {{$value->id_category}} và loại id tương ứng : {{$value->name_category}} </p>
+                
+                @endforeach
             </div>
     </body>
 </html>
