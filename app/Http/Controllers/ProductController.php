@@ -15,7 +15,7 @@ class ProductController extends Controller
     {
         //
         $title = "Tất cả sản phẩm";
-        return view('product/pages-product')->with('title',$title);
+        return view('admin.product.index')->with('title',$title);
     }
 
     /**
@@ -50,7 +50,6 @@ class ProductController extends Controller
     {
         //
         $title = "Sản phẩm";
-
         return view('product/product-details')->with('title',$title);
     }
 

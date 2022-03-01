@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\HomeAdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +17,9 @@ use App\Http\Controllers\ProductController;
 */
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::resource('product',ProductController::class)->names('product');
+Auth::routes();
+Route::get('/home',[HomeAdminController::class,'index']);
+// Route::resource('user', UserController::class);
 // Route::get('/', function () {
 //     return view('index');
 // });
@@ -25,15 +29,6 @@ Route::resource('product',ProductController::class)->names('product');
 // Route::get('/product/{id}', function ($id) {
 //     return view('product-details');
 // });
-
-
-
-// Route::resource('user', UserController::class);
-
- Auth::routes();
-
-
-
 
 // Route::resource('/category', CategoryController::class);
 

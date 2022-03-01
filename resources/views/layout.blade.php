@@ -22,7 +22,7 @@
         </style>
     </head>
     <body class="antialiased">
-    @include('header')
+        @include('header')
         @yield('content')
     </body>
     <script text="text/javascript" src="{{asset('js/app.js')}}"></script>
