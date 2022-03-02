@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Category;
+use App\Models\Product;
+use App\Models\Supplier;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -14,8 +16,9 @@ class ProductController extends Controller
     public function index()
     {
         //
-        $title = "Tất cả sản phẩm";
-        return view('admin.product.index')->with('title',$title);
+        $product = Product::all();
+        return view('admin.product.index')
+        ->with(compact('product'));
     }
 
     /**
@@ -23,12 +26,16 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function create()
     {
         //
-        return view('admin.product.create');
+        $category = Category::all();
+        $supplier = Supplier::all();
+        return view('admin.product.create')
+        ->with(compact('category'))
+        ->with(compact('supplier'));
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -38,6 +45,17 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         //
+        $data= $request->all();
+        $product= new Product();
+        $product->name_product=$data['name_product'];
+        $product->price=$data['price'];
+        $product->quanlity=$data['quanlity'];
+        $product->title=$data['title'];
+        $product->content=$data['content'];
+        $product->id_category=$data['category'];
+        $product->id_supplier=$data['supplier'];
+        $product->save();
+        return redirect()->back();
     }
 
     /**
@@ -85,5 +103,15 @@ class ProductController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function indexcreate()
+    {
+        //
+        $category = Category::all();
+        $supplier = Supplier::all();
+        return view('admin.product.create')
+        ->with(compact('category'))
+        ->with(compact('supplier'));
     }
 }
