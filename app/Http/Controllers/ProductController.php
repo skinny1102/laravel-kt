@@ -5,7 +5,7 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\Supplier;
 use Illuminate\Http\Request;
-
+use Validate;
 class ProductController extends Controller
 {
     /**
@@ -45,7 +45,16 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         //
-        $data= $request->all();
+        $data= $request-> validate([
+            'name_product'=>'required',
+            'price'=>'required',
+            'quanlity'=>'required',
+            'title'=>'required',
+            'content'=>'required',
+            'category'=>'required',
+            'supplier'=>'required',
+
+        ]);
         $product= new Product();
         $product->name_product=$data['name_product'];
         $product->price=$data['price'];
@@ -80,6 +89,7 @@ class ProductController extends Controller
     public function edit($id)
     {
         //
+ 
     }
 
     /**
@@ -102,7 +112,10 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //     
+        $product = Product::find($id);
+        $product->delete();
+        return redirect()->back();
     }
 
     public function indexcreate()

@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8 my-3">
             <div class="card">
-                <div class="card-header">Quản lý sản phẩm</div>
+                <div class="card-header text-center">Quản lý sản phẩm</div>
                 <!-- <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
@@ -18,21 +18,33 @@
     </div>
 
     <div class="row">
+    <div class="card-body">
+
+    </div>
       <div class="col-3">
       <ul class="list-group">
             <li class="list-group-item bg-light"><a href="{{route('product.index')}}">Tất cả sản phẩm </a> </li>
             <li class="list-group-item"><a href="{{route('product.create')}}">Thêm sản phẩm</a></li>
         </ul>
-        <a href="{{route('product.create')}}" class="btn btn-primary mt-3"> Thêm sản phẩm <i class="fa-solid fa-plus"></i></a>
+        <!-- <a href="{{route('product.create')}}" class="btn btn-primary mt-3"> Thêm sản phẩm <i class="fa-solid fa-plus"></i></a> -->
+        @if ($errors->any())
+            <div class="alert alert-danger mt-4">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
             </div>
-            <div class="col-9">
+        @endif
+            </div>
+            <div class="col-9 bg-light">
             <form method="POST" action="{{route('product.store')}}">
             @csrf
             <div class="form-group">
             <label for="name_product">Tên sản phẩm</label>
             <input type="text" class="form-control" id="name_product" name="name_product" placeholder="Tên sản phẩm ...">
         </div>
-        <div class="row">
+        <div class="row ">
             <div class="col-6">
             <label for="category">Loại sản phẩm</label>
             <select class="form-control" name="category" id="category">

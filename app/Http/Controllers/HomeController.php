@@ -22,7 +22,9 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {   $category = Category::all();
-        return view('index')->with(compact('category'));
+    { 
+        //   $category = Category::all();
+        // return view('index')->with(compact('category'));
+        return view('user.homeuser');
     }
 }
