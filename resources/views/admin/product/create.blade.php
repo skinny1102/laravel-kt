@@ -18,9 +18,6 @@
     </div>
 
     <div class="row">
-    <div class="card-body">
-
-    </div>
       <div class="col-3">
       <ul class="list-group">
             <li class="list-group-item bg-light"><a href="{{route('product.index')}}">Tất cả sản phẩm </a> </li>
@@ -38,11 +35,11 @@
         @endif
             </div>
             <div class="col-9 bg-light">
-            <form method="POST" action="{{route('product.store')}}">
+            <form method="POST" action="{{route('product.store')}}" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
             <label for="name_product">Tên sản phẩm</label>
-            <input type="text" class="form-control" id="name_product" name="name_product" placeholder="Tên sản phẩm ...">
+            <input type="text" class="form-control" id="name_product" name="name_product" placeholder="Tên sản phẩm ..." value="dalavalue">
         </div>
         <div class="row ">
             <div class="col-6">
@@ -62,10 +59,7 @@
             </select>
             </div>
         </div>
-        <div class="form-group">
-            <label for="title">Tiêu đề</label>
-            <input type="text" class="form-control" id="title" name="title" placeholder="Tên sản phẩm ...">
-        </div>
+
         <div class="row">
             <div class="col-4">
             <div class="form-group">
@@ -81,9 +75,21 @@
             </div>
         </div>
         <div class="form-group">
+            <label for="title">Tiêu đề</label>
+            <input type="text" class="form-control" id="title" name="title" placeholder="Tên sản phẩm ...">
+        </div>
+        <div class="custom-file">
+                <label for="">Ảnh</label>
+                <br>
+                <input type="file" name="image" >
+                <br>
+      
+        </div>
+        <div class="form-group">
             <label for="content">Nội dung</label>
             <textarea class="form-control" id="content" name="content" rows="3"></textarea>
         </div>
+
         <button class="btn btn-primary my-2">Thêm mới</button>
         </form>
       </div>

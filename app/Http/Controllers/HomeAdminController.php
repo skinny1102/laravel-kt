@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Category;
+use App\Models\Product;
 class HomeAdminController extends Controller
 {
     //
@@ -19,6 +20,10 @@ class HomeAdminController extends Controller
      */
     public function index()
     {   
-        return view('home');
+         $categorycount = Category::count();
+         $productcount = Product::count();
+         return view('home')
+         ->with(compact('categorycount'))
+         ->with(compact('productcount'));
     }
  }

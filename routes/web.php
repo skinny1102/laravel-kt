@@ -16,9 +16,11 @@ use App\Http\Controllers\HomeAdminController;
 |
 */
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/product-info/{id}',[ProductController::class,'productinfo']);
 Route::resource('product',ProductController::class)->names('product');
 Auth::routes();
 Route::get('/home',[HomeAdminController::class,'index']);
+
 // Route::resource('user', UserController::class);
 // Route::get('/', function () {
 //     return view('index');

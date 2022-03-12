@@ -12,11 +12,8 @@
             <h2>Tag</h2>
             <ul class="tag_nav">
               <li><a href="#">Giới thiệu</a></li>
-              <li><a href="#">Tổ chức</a></li>
-              <li><a href="#">Đào tạo</a></li>
-              <li><a href="#">Tin tức</a></li>
-              <li><a href="#">NCHK</a></li>
-              <li><a href="#">Diễn Đàn</a></li>
+              <li><a href="#">Sản phẩm</a></li>
+              <li><a href="#">Hãng </a></li>
               <li><a href="#">Liên hệ</a></li>
             </ul>
           </div>

@@ -2,11 +2,10 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+<div class="row justify-content-center">
         <div class="col-md-8 my-3">
             <div class="card">
-                <div class="card-header">Quản lý sản phẩm</div>
-
+                <div class="card-header text-center">Quản lý sản phẩm</div>
                 <!-- <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
@@ -14,7 +13,6 @@
                         </div>
                     @endif
                 </div> -->
-
             </div>
         </div>
     </div>
@@ -34,6 +32,7 @@
                 <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Tên Sản phẩm</th>
+                <!-- <th scope="col">Ảnh</th> -->
                 <th scope="col">Giá</th>
                 <th scope="col">Số lượng</th>
                 <th scope="col">Ation</th>
@@ -44,11 +43,26 @@
             <tr>
                 <th scope="row">{{$value->id_product}}</th>
                 <td>{{$value->name_product}}</td>
+                <!-- <td>
+                @if($value->image_product !='')    
+                  <img src="{{ asset('uploads/' . $value->image_product) }}" class="rounded mx-auto d-block" 
+                  width="100"
+                  height="100"
+                  alt="...">     
+                       
+                @else
+                  <img src="https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png" 
+                    class="rounded mx-auto d-block" 
+                    alt="Girl in a jacket"
+                    width="100"
+                    height="100">       
+                @endif
+                </td> -->
                 <td>{{$value->id_product}}</td>
                 <td>{{$value->id_product}}</td>
                 <td>
 
-                    <button href="{{route('product.destroy',['product' => $value->id_product])}}" class="btn-edit-produc btn btn-success"><i class="fa-solid fa-pen-to-square"></i></button>
+                    <button href="" class="btn-edit-produc btn btn-success" data-toggle="modal" data-target="#modal-edit" data-idpedit="{{$value->id_product}}"><i class="fa-solid fa-pen-to-square"></i></button>
                     <!-- Button trigger modal -->
                     <button type="button" class="btn-delete-inside btn btn-danger" data-toggle="modal" data-idproduct="{{$value->id_product}}" data-target="#delete-product-modal">
                     X
@@ -63,7 +77,7 @@
   </div>
 </div>
 <form  method="post" id="form_delete_product">
-                    <input class="btn btn-default" type="submit" value="Delete" type="hidden"/>
+                    <input type="hidden" class="btn btn-default"  value="Delete" />
                     <input type="hidden" name="_method" value="delete" />
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 </form>             
@@ -87,4 +101,79 @@
     </div>
   </div>
 </div>
+<!-- Modal edit -->
+<div id="modal-edit" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+    
+      <form  method="post" id="form-edit" class="my-3 mx-3" class="form-edit">
+        {{ method_field('PUT') }}
+        {{ csrf_field() }}
+      <div class="row" >
+          <div class="col-md-12"> <h3 class="text-center mt-3s">Chỉnh sửa</h3> </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 ml-auto">
+          <div class="row">
+              <img src="https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png" class="rounded mx-auto d-block" alt="..." id="my_image">
+        <div class="form-group">
+            <label for="price">Giá sản phẩm</label>
+            <input type="text" class="form-control" id="price" name="price" placeholder="Giá sản phẩm  ...">
+        </div>
+        <div class="form-group">
+        
+            <label for="quanlity">Số lượng</label>
+            <input type="text" class="form-control" id="quanlity" name="quanlity" placeholder="Số lượng ...">
+        </div>
+          </div>
+        </div>
+        <div class="col-md-8 ml-auto">    
+          <div class="form-group">
+          <label for="name_product">Tên sản phẩm</label>
+          <input type="email" class="form-control" id="name_product" name="name_product" placeholder="...">
+        </div>
+      <div class="row">
+        <div class="col-6">
+        <div class="form-group">
+        <label for="category">Loại sản phẩm</label>
+            <select class="form-control" name="category" id="category">
+                @foreach($category as $key=>$value)
+                        <option value="{{$value->id_category}}"> {{$value->name_category}}</option>
+                @endforeach
+            </select>
+        </div>
+        </div>
+        <div class="col-6">
+        <div class="form-group">
+        <label for="supplier">Nhà cung cấp</label>
+            <select class="form-control" id="supplier" name="supplier">
+                @foreach($supplier as $key=>$value)
+                        <option value="{{$value->id_supplier}}"> {{$value->name_supplier}}</option>
+                @endforeach
+            </select>
+        </div>
+        </div>
+      </div>  
+      <div class="form-group">
+          <label for="title">Tiêu đề</label>
+          <input type="text" class="form-control" id="title"  name="title" >
+      </div>
+      <div class="form-group">
+        <label for="content">Nội dung</label>
+        <textarea class="form-control" id="content" name="content" rows="4"></textarea>
+      </div>
+      </div>
+      </div>
+          <div class="d-flex flex-row-reverse">
+              <input type="submit" class="btn btn-success px-4" id="btn-edit-modal" value="Sửa"></input>
+              <!-- <input type="hidden" class="btn btn-default"  value="Delete" /> -->
+              <input type="hidden" name="_method" value="put" />
+              <input type="hidden" name="_token" value="{{ csrf_token() }}">
+          </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
 @endsection
