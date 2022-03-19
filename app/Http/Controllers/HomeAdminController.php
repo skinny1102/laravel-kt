@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Supplier;
 class HomeAdminController extends Controller
 {
     //
@@ -22,8 +23,10 @@ class HomeAdminController extends Controller
     {   
          $categorycount = Category::count();
          $productcount = Product::count();
+         $suppliercount = Supplier::count();
          return view('home')
          ->with(compact('categorycount'))
-         ->with(compact('productcount'));
+         ->with(compact('productcount'))
+         ->with(compact('suppliercount'));
     }
  }

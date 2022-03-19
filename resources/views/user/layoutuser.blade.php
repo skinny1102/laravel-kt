@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="{{asset('css/templatecss/jquery.fancybox.css')}}">
   <link rel="stylesheet" href="{{asset('css/templatecss/theme.css')}}">
   <link rel="stylesheet" href="{{asset('css/templatecss/style.css')}}">
+  <link rel="stylesheet" href="{{asset('css/templatecss/details-product.css')}}">
 </head>
 <body>
 <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>

@@ -20,7 +20,7 @@ class ProductController extends Controller
     public function index()
     {
         //
-        $product = Product::all();
+        $product = Product::all()->sortByDesc("created_at");
         $category = Category::all();
         $supplier = Supplier::all();
         return view('admin.product.index')
@@ -61,7 +61,11 @@ class ProductController extends Controller
             'content'=>'required',
             'category'=>'required',
             'supplier'=>'required',
-
+            'cpu_name'=>'required',
+            'ram_name'=>'required',
+            'disk_name'=>'required',
+            'card_name'=>'required',
+            'desktop_name'=>'required',
         ]);
         if($request->has('image')){
             $file=$request->image;
@@ -77,6 +81,11 @@ class ProductController extends Controller
         $product->content=$data['content'];
         $product->id_category=$data['category'];
         $product->id_supplier=$data['supplier'];
+        $product->cpu_name=$data['cpu_name'];
+        $product->ram_name=$data['ram_name'];
+        $product->disk_name=$data['disk_name'];
+        $product->card_name=$data['card_name'];
+        $product->desktop_name=$data['desktop_name'];
         $product->image_product=$file_name;
         $product->save();
         return redirect()->back();
@@ -92,7 +101,7 @@ class ProductController extends Controller
     {
         //
         $title = "Sản phẩm";
-        return view('product/product-details')->with('title',$title);
+        return view('user/product-details')->with('title',$title);
     }
 
     /**
@@ -137,6 +146,11 @@ class ProductController extends Controller
         $product->content=$data['content'];
         $product->id_category=$data['category'];
         $product->id_supplier=$data['supplier'];
+        $product->cpu_name=$data['cpu_name'];
+        $product->ram_name=$data['ram_name'];
+        $product->disk_name=$data['disk_name'];
+        $product->card_name=$data['card_name'];
+        $product->desktop_name=$data['desktop_name'];
         $product->save();
         return redirect()->back();
     }

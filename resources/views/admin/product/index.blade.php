@@ -58,8 +58,8 @@
                     height="100">       
                 @endif
                 </td> -->
-                <td>{{$value->id_product}}</td>
-                <td>{{$value->id_product}}</td>
+                <td>{{$value->price}}</td>
+                <td>{{$value->quanlity}}</td>
                 <td>
 
                     <button href="" class="btn-edit-produc btn btn-success" data-toggle="modal" data-target="#modal-edit" data-idpedit="{{$value->id_product}}"><i class="fa-solid fa-pen-to-square"></i></button>
@@ -153,7 +153,43 @@
             </select>
         </div>
         </div>
-      </div>  
+      </div> 
+      <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="cpu_name">CPU Name</label>
+                    <input type="text" class="form-control" id="cpu_name" name="cpu_name" placeholder="CPU Name ...">
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="ram_name">RAM Name</label>
+                    <input type="text" class="form-control" id="ram_name" name="ram_name" placeholder="Ram Name ...">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="disk_name">Disk Name</label>
+                    <input type="text" class="form-control" id="disk_name" name="disk_name" placeholder="CPU Name ...">
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="card_name">Card Name</label>
+                    <input type="text" class="form-control" id="card_name" name="card_name" placeholder="Card Name ...">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="desktop_name">DeskTop Name</label>
+            <input type="text" class="form-control" id="desktop_name" name="desktop_name" placeholder="Desktop name ...">
+        </div> 
+
+ 
+      </div>
+      </div>
       <div class="form-group">
           <label for="title">Tiêu đề</label>
           <input type="text" class="form-control" id="title"  name="title" >
@@ -161,8 +197,6 @@
       <div class="form-group">
         <label for="content">Nội dung</label>
         <textarea class="form-control" id="content" name="content" rows="4"></textarea>
-      </div>
-      </div>
       </div>
           <div class="d-flex flex-row-reverse">
               <input type="submit" class="btn btn-success px-4" id="btn-edit-modal" value="Sửa"></input>

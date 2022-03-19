@@ -3,53 +3,31 @@
 <section id="sliderSection">
     <div class="row">
       <div class="col-lg-8 col-md-8 col-sm-8">
-
         <div class="slick_slider">
-   
-          <div class="single_iteam"> <a href=""> <img src="https://laptop88.vn/media/product/6846_dell_inspiron_7415.jpg" alt=""></a>
+        @foreach($product as $key=>$value)
+          <div class="single_iteam"> <a href="/product-details/{{$value->id_product}}"> 
+            <img src="{{ asset('/uploads/' . $value->image_product) }}" alt="" 
+          style="width: 710px; height: 448px; object-fit: cover;"></a>
             <div class="slider_article">
-              <h2><a class="slider_tittle" href="">Đây là title 1 nè</a></h2>
+              <h2><a class="slider_tittle" href="">{{$value->name_product}}</a></h2>
               <p></p>
             </div>
           </div>
-   
-          <div class="single_iteam"> <a href=""> <img src="https://laptop88.vn/media/product/6542_dsc08245.jpg" alt=""></a>
-            <div class="slider_article">
-              <h2><a class="slider_tittle" href="">Đây là title 1 nè</a></h2>
-              <p></p>
-            </div>
-          </div>
-   
-          <div class="single_iteam"> <a href=""> <img src="https://laptop88.vn/media/product/6749_dsc07995.jpg" alt=""></a>
-            <div class="slider_article">
-              <h2><a class="slider_tittle" href="">Đây là title 1 nè</a></h2>
-              <p></p>
-            </div>
-          </div>
-   
+          @endforeach  
         </div>
-
-
       </div>
       <div class="col-lg-4 col-md-4 col-sm-4">
         <div class="latest_post">
           <h2><span>Sản phẩm mới </span></h2>
-         
+          @foreach($productnew as $key=>$value)
               <li>
-                <div class="media"> <a href="" class="media-left"> <img alt="" src="https://laptop88.vn/media/product/6749_dsc07995.jpg"> </a>
-                  <div class="media-body"> <a href="" class="catg_title">Đây là title</a> </div>
+                <div class="media"> <a href="" class="media-left"> 
+                  <img alt="" src="{{ asset('/uploads/' . $value->image_product) }}"
+                   style=" object-fit: cover;" > </a>
+                  <div class="media-body"> <a href="" class="catg_title">{{$value->name_product}}</a> </div>
                 </div>
               </li>
-              <li>
-                <div class="media"> <a href="" class="media-left"> <img alt="" src="https://laptop88.vn/media/product/6749_dsc07995.jpg"> </a>
-                  <div class="media-body"> <a href="" class="catg_title">Đây là title</a> </div>
-                </div>
-              </li>
-              <li>
-                <div class="media"> <a href="" class="media-left"> <img alt="" src="https://laptop88.vn/media/product/6749_dsc07995.jpg"> </a>
-                  <div class="media-body"> <a href="" class="catg_title">Đây là title</a> </div>
-                </div>
-              </li> 
+          @endforeach  
           <!-- <div class="latest_post_container">
 
             <div id="prev-button"><i class="fa fa-chevron-up"></i></div>
@@ -69,55 +47,36 @@
         <div id="tindaotao" class="left_content">
           <div class="single_post_content">
             <h2><span>Sản phẩm bán chạy </span></h2>
-
-            <div class="single_post_content_left my-3 mx-3">
-              <ul class="business_catgnav  wow fadeInDown">
-                <li>
-                  <figure class="bsbig_fig"> <a href="" class="featured_img"> <img alt="" src="https://laptop88.vn/media/product/pro_poster_5961.jpg"> <span class="overlay"></span> </a>
-                    <figcaption> <a href="">[Mới 100% Full Box] Laptop Asus Zenbook Q408UG- AMD Ryzen 5</a> </figcaption>
-                    <p>Laptop văn phòng cao cấp, sang trọng, mỏng nhẹ chỉ khoảng 1.15kg. Card rời Geforce MX350 2GB. Màn</p>
+            <div class="d-flex flex-wrap">
+                @foreach($productEx as $key=>$value)
+                <div class="single_post_content_left my-3 mx-3">
+               <figure class="bsbig_fig"> <a href="" class="featured_img">
+                     <img alt=""  src="{{ asset('/uploads/' . $value->image_product) }}" 
+                     style=" hieght:200px; width:347; object-fit: cover;" > 
+                     <span class="overlay"></span> </a>
+                    <figcaption> <a href="">{{$value->name_product}}</a> </figcaption>
+                    <p>{{$value->title}}</p>
                   </figure>
-                  <h2><span>Giá </span> : 1000000 vnd</h2>
-                </li>
-              </ul>
-            </div>
-            <div class="single_post_content_left my-3 mx-3">
-              <ul class="business_catgnav  wow fadeInDown">
-                <li>
-                  <figure class="bsbig_fig"> <a href="" class="featured_img"> <img alt="" src="https://laptop88.vn/media/product/pro_poster_5961.jpg"> <span class="overlay"></span> </a>
-                    <figcaption> <a href="">[Mới 100% Full Box] Laptop Asus Zenbook Q408UG- AMD Ryzen 5</a> </figcaption>
-                    <p>Laptop văn phòng cao cấp, sang trọng, mỏng nhẹ chỉ khoảng 1.15kg. Card rời Geforce MX350 2GB. Màn</p>
-                  </figure>
-                  <h2><span>Giá </span> : 1000000 vnd</h2>
-                </li>
-              </ul>
-            </div>
-            <div class="single_post_content_left my-3 mx-3">
-              <ul class="business_catgnav  wow fadeInDown">
-                <li>
-                  <figure class="bsbig_fig"> <a href="" class="featured_img"> <img alt="" src="https://laptop88.vn/media/product/pro_poster_5961.jpg"> <span class="overlay"></span> </a>
-                    <figcaption> <a href="">[Mới 100% Full Box] Laptop Asus Zenbook Q408UG- AMD Ryzen 5</a> </figcaption>
-                    <p>Laptop văn phòng cao cấp, sang trọng, mỏng nhẹ chỉ khoảng 1.15kg. Card rời Geforce MX350 2GB. Màn</p>
-                 
-                  </figure>
-                  <h2><span>Giá </span> : 1000000 vnd</h2>
-                </li>
-              </ul>
-            </div>
-            <div class="single_post_content_left my-3 mx-3">
-              <ul class="business_catgnav  wow fadeInDown">
-                <li>
-                  <figure class="bsbig_fig"> <a href="" class="featured_img"> <img alt="" src="https://laptop88.vn/media/product/pro_poster_5961.jpg"> <span class="overlay"></span> </a>
-                    <figcaption> <a href="">[Mới 100% Full Box] Laptop Asus Zenbook Q408UG- AMD Ryzen 5</a> </figcaption>
-                    <p>Laptop văn phòng cao cấp, sang trọng, mỏng nhẹ chỉ khoảng 1.15kg. Card rời Geforce MX350 2GB. Màn</p>
-                  </figure>
-                  <h2><span>Giá </span> : 1000000 vnd</h2>
-                </li>
-              </ul>
+                  <h2><span>Giá </span> : {{$value->price}}</h2> 
+                </div>
+                @endforeach  
             </div>
             <div class="single_post_content_right">
               <ul class="spost_nav">
-
+<!-- 
+              <ul class="business_catgnav  wow fadeInDown">
+                <li>
+                  
+                </li>
+              </ul> -->
+              <!-- <figure class="bsbig_fig"> <a href="" class="featured_img">
+                     <img alt="" class="img-thumbnail" src="{{ asset('/uploads/' . $value->image_product) }}" 
+                     style=" hieght:200px;width:200px; object-fit: cover;" > 
+                     <span class="overlay"></span> </a>
+                    <figcaption> <a href="">{{$value->name_product}}</a> </figcaption>
+                    <p>{{$value->title}}</p>
+                  </figure>
+                  <h2><span>Giá </span> : {{$value->price}}</h2> -->
               </ul>
             </div>
           </div>

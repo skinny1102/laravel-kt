@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Category;
+use Illuminate\Support\Facades\DB;
 class CategoryController extends Controller
 {
     /**
@@ -14,7 +15,18 @@ class CategoryController extends Controller
     public function index()
     {
         //
-        return view('admin.category.index');
+        $category = DB::table('category')
+                ->select(
+                    DB::raw('category.id_category'),
+                    DB::raw('category.name_category'),
+                    DB::raw('Count(product.id_product) as count'))
+                ->leftJoin('product', 'product.id_category', '=', 'category.id_category')
+                ->groupBy(
+                    DB::raw('category.id_category'),
+                    DB::raw('category.name_category'),
+                    )
+                ->get();;
+        return view('admin.category.index')->with(compact('category'));
     }
 
     /**

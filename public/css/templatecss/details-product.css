@@ -1,0 +1,55 @@
+
+.url-crix{
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+}
+.name-product{
+    font-size: 18px;
+    margin: 0 0 10px;
+}
+.price-procduct{
+    font-weight: bold;
+    font-size: 25px;
+    color: #ef1200;
+    display: block;
+    line-height: 30px;
+}
+.title-product{
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.25;
+    color: #333333;
+    font-style: oblique;
+}
+.ddnb{
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.25;
+    color: #333333;
+}
+.ddnb-title{
+    text-align: center;
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 1.25;
+    color: #333333;
+}
+.hr-top{
+    margin-top: 2px;
+}
+.hr-line{
+    margin: 5px 0;
+}
+.ddnb-pr-content{
+    width: 90%;
+    margin-left: 15px;
+}
+.ddnb-content{
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #333333;
+}
