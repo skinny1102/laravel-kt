@@ -2,7 +2,7 @@
 @section('content')
 <section id="contentSection">
   <p class="url-crix">
-    <span>Trangchủ</span>
+    <span> <a href="/" class="text-dark">Trang chủ</a> </span>
     <span> / </span>
     <span>Laptop</span>
     <span> / </span>
@@ -19,12 +19,12 @@
             <div class="col-lg-5 col-md-5 col-sm-5">
                 <p class="price-procduct"> @convert($product->price) <span>Đ</span></p>
                 <p class="title-product"> {{$product->title}}</p>
-                <p>Hãng : {{$product->name_supplier}} </p>
-                <p>CPU : {{$product->cpu_name}}</p>
-                <p>RAM : {{$product->ram_name}}</p>
-                <p>Ổ cứng : {{$product->disk_name}}</p>
-                <p>Card đồ họa  : {{$product->disk_name}}</p>
-                <p>Màn hình : {{$product->desktop_name}} </p>
+                <p class="h4">Hãng : {{$product->name_supplier}} </p>
+                <p class="h4">CPU : {{$product->cpu_name}}</p>
+                <p class="h4">RAM : {{$product->ram_name}}</p>
+                <p class="h4">Ổ cứng : {{$product->disk_name}}</p>
+                <p class="h4">Card đồ họa  : {{$product->disk_name}}</p>
+                <p class="h4">Màn hình : {{$product->desktop_name}} </p>
             </div>
     </div>
     <div class="row">
@@ -55,7 +55,12 @@
                   style=" hieght:200px; width:347; object-fit: cover;" 
                   > 
                 </a>
-                  <div class="media-body"> <a href="" class="catg_title">{{$value->name_product}}</a> </div>
+                <div class="media-body">
+                     <a href="/product-details/{{$value->id_product}}" class="catg_title text-decoration-none h5">{{$value->name_product}}</a> 
+                     <br>
+                     <p class="card-text text-decoration-none font-weight-bold text-danger h5">
+                        @convert($value->price) <span>Đ</span></p>
+                  </div>
                 </div>
               </li>
                 @endforeach

@@ -5,6 +5,7 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\Supplier;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Validate;
 class ProductController extends Controller
 {
@@ -17,16 +18,58 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $product = Product::all()->sortByDesc("created_at");
         $category = Category::all();
         $supplier = Supplier::all();
+        $page = $request->query('page'); 
+        $take = 10;      
+        if($page==null || $page==0 || $page==1){
+            $page=0;
+        }else{
+            $page= $take * ($page-1);
+        }
+        $product = Product::all()->skip($page)->take($take)->sortByDesc("created_at");
+        $productcount = Product::count();
+        if($page==0){
+            $page=1;
+        }
+        $nPage = ceil($productcount/$take);
+        $arrPage=array();
+        for ($i = 1; $i<=$nPage; $i++) {
+            array_push($arrPage,$i);
+        }
+ 
+        $cangoprev ;
+        $cangonext ;
+        if($page>1){
+            $cangoprev=true; 
+        }else{
+            $cangoprev=false;
+        }
+        if($page<=$nPage-1){
+            $cangonext = true;
+        }else{
+            $cangonext = false;
+        }  
+        $next_value=$page + 1;
+        $pev_value=0;
+        // if($page>2){
+        //     $pev_value = $page - 2;
+        // }else{
+        //     $pev_value = $page - 1;
+        // }
+      
         return view('admin.product.index')
         ->with(compact('product'))
         ->with(compact('category'))
-        ->with(compact('supplier'));
+        ->with(compact('supplier'))
+        ->with(compact('arrPage'))
+        ->with(compact('pev_value'))
+        ->with(compact('next_value'))
+        ->with(compact('cangonext'))
+        ->with(compact('cangoprev'));
     }
 
     /**
@@ -183,5 +226,23 @@ class ProductController extends Controller
         # code...
         $product = Product::find($id);
         return $product;
+    }
+
+    public function search(Request $request)
+    {
+        # code...
+        $keyword = $request->query('keyword');
+      
+        $category = Category::all();
+        $supplier = Supplier::all();
+        $product = DB::table('product')->select("*")->where('name_product', 'like', '%' . $keyword . '%')->get();
+        return view('admin.product.index')
+        ->with(compact('product'))
+        ->with(compact('category'))
+        ->with(compact('supplier'));
+         return view('admin.product.index')
+        ->with(compact('product'))
+        ->with(compact('category'))
+        ->with(compact('supplier'));
     }
 }

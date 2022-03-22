@@ -17,15 +17,22 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row ">
       <div class="col-3">
         <ul class="list-group">
             <li class="list-group-item bg-light"><a href="{{route('product.index')}}">Tất cả sản phẩm </a> </li>
             <li class="list-group-item"><a href="{{route('product.create')}}">Thêm sản phẩm</a></li>
         </ul>
+        <div class="input-group mb-3 mt-3">
+          <input type="text" class="form-control" id="keywordsearch" placeholder="Nhập tên sản phẩm" aria-label="Recipient's username" aria-describedby="basic-addon2">
+          <div class="input-group-append">
+            <button class="btn btn-secondary" id="btn_search_name">Tìm kiếm</button>
+            <!-- <span class="input-group-text" id="basic-addon2">Tìm kiếm</span> -->
+          </div>
+        </div>
         <!-- <a href="{{route('product.create')}}" class="btn btn-primary mt-3"> Thêm sản phẩm <i class="fa-solid fa-plus"></i></a> -->
       </div>
-      <div class="col-9">
+      <div class="col-9 bg-list p-0 mb-3">
         <div class="tab-content" id="nav-tabContent">
         <table class="table">
             <thead>
@@ -58,7 +65,7 @@
                     height="100">       
                 @endif
                 </td> -->
-                <td>{{$value->price}}</td>
+                <td>  @convert($value->price)</td>
                 <td>{{$value->quanlity}}</td>
                 <td>
 
@@ -73,6 +80,32 @@
             </tbody>
             </table>
         </div>
+        <!-- Phân trang  -->
+        <nav aria-label="Page navigation example mb-0">
+        <ul class="pagination justify-content-center">
+
+          <li class="page-item">
+          @if ($cangoprev)
+            <a class="page-link" href="{{route('product.index', ['page' => $pev_value])}}" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+              <span class="sr-only">Previous</span>
+            </a>
+            @endif
+          </li>
+       
+          @foreach($arrPage as $value)
+          <li class="page-item"><a class="page-link" href="{{route('product.index', ['page' => $value])}}">{{$value}}</a></li>
+          @endforeach
+          <li class="page-item">
+          @if ($cangonext)
+            <a class="page-link" href="{{route('product.index', ['page' => $next_value])}}" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+              <span class="sr-only">Next</span>
+            </a>
+            @endif
+          </li>
+        </ul>
+      </nav>
       </div>
   </div>
 </div>

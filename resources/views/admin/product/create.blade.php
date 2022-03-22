@@ -34,8 +34,8 @@
             </div>
         @endif
             </div>
-            <div class="col-9 bg-light">
-            <form method="POST" action="{{route('product.store')}}" enctype="multipart/form-data">
+            <div class="col-9  bg-list mb-3 ">
+            <form method="POST" action="{{route('product.store')}}" enctype="multipart/form-data" class="pt-4 mb-3">
             @csrf
             <div class="form-group">
             <label for="name_product">Tên sản phẩm</label>

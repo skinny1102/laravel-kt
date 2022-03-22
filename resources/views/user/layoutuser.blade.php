@@ -14,11 +14,13 @@
   <link rel="stylesheet" href="{{asset('css/templatecss/jquery.fancybox.css')}}">
   <link rel="stylesheet" href="{{asset('css/templatecss/theme.css')}}">
   <link rel="stylesheet" href="{{asset('css/templatecss/style.css')}}">
+  <link rel="stylesheet" href="{{asset('css/templatecss/addpost.css')}}">
   <link rel="stylesheet" href="{{asset('css/templatecss/details-product.css')}}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
-<body>
+<body class="bg-light">
 <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
-<div class="container">
+<div class="container bg-light">
 @include('user.header')
     @yield('content')
 
@@ -33,5 +35,6 @@
 <script text="text/javascript" src="{{asset('js/templatejs/jquery.newsTicker.min.js')}}"></script> 
 <script text="text/javascript" src="{{asset('js/templatejs/jquery.fancybox.pack.js')}}"></script> 
 <script text="text/javascript" src="{{asset('js/templatejs/custom.js')}}"></script> 
+
 </body>
 </html>

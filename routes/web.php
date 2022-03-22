@@ -17,6 +17,7 @@ use App\Http\Controllers\HomeAdminController;
 */
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/product-info/{id}',[ProductController::class,'productinfo']);
+Route::get('/product/search',[ProductController::class,'search']);
 Route::get('/product-details/{id}',  [HomeController::class, 'productdetails']);
 Route::resource('product',ProductController::class)->names('product');
 Route::resource('category',CategoryController::class)->names('category');

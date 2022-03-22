@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Supplier;
 use App\Models\Product;
 use Illuminate\Support\Facades\DB;
 class HomeController extends Controller
@@ -12,6 +13,8 @@ class HomeController extends Controller
 
     public function index()
     { 
+        $category = Category::all();
+        $supplier = Supplier::all();
         $product =DB::table('product')
                     ->orderBy('id_product', 'desc')
                     ->take(3)
@@ -22,12 +25,20 @@ class HomeController extends Controller
             ->get();
         $productEx =DB::table('product')
             ->orderBy('price', 'asc')
-            ->take(2)
+            ->take(6)
+            ->get();
+        $productimg =DB::table('product')
+            ->orderBy('price', 'asc')
+            ->take(6)
             ->get();
         return view('user.homeuser')
         ->with(compact('product'))
         ->with(compact('productnew'))
-        ->with(compact('productEx'));
+        ->with(compact('productEx'))
+        ->with(compact('productimg'))
+        ->with(compact('category'))
+        ->with(compact('supplier'))
+        ;
     }
     public function productdetails($id)
     {

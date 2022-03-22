@@ -52,4 +52,14 @@ $("#btn-delete-product").on('click',function(){
         $("#form-edit").attr('action', `/product/${idproductEdit}`);
         $("#form-edit").submit();
     })
+
+
+   
+    var btnsearh = document.getElementById("btn_search_name")
+    btnsearh.onclick = function(){
+        var keyword = document.getElementById("keywordsearch").value;
+        if(keyword!=""){
+            window.location.href= `/product/search?keyword=${keyword}`
+        }
+    }
 });
