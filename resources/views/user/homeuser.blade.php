@@ -145,10 +145,9 @@
             <div class="tab-content">
               <div role="tabpanel" class="tab-pane active" id="category">
                 <ul>
-                  <li class="cat-item"><a href="#">Asus</a></li>
-                  <li class="cat-item"><a href="#">Dell</a></li>
-                  <li class="cat-item"><a href="#">Acer</a></li>
-                  <li class="cat-item"><a href="#">MSI</a></li>
+                @foreach($supplier as $key=>$value)
+                  <li class="cat-item"><a href="/hang?name={{$value->name_supplier}}">{{$value->name_supplier}}</a></li>
+                  @endforeach  
              
                 </ul>
               </div>

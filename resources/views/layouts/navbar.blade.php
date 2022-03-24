@@ -14,7 +14,7 @@
          <a class="dropdown-item" href="{{route('product.index')}}">Liệt kê sản phẩm</a>
          </div>
      </li>
-    <li class="nav-item dropdown">
+    <!-- <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
          Quản lý danh mục
          </a>
@@ -22,7 +22,7 @@
          <a class="dropdown-item" href="">Thêm loại sản phẩm</a>
         <a class="dropdown-item" href="">Liệt kê loại sản phẩm</a>
         </div>
-     </li>
+     </li> -->
     </ul>
   </div>
 </nav>

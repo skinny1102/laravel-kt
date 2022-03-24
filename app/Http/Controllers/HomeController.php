@@ -74,4 +74,35 @@ class HomeController extends Controller
                     ->with(compact('product'))
                     ->with(compact('productld'));
     }
+    public function categoryall(Request $request)
+    {
+        # code...
+        $supplier = $request->query('name'); 
+        if($supplier==null ){
+            $supplier="Asus";
+        }
+        $categoryall = DB::table('supplier')
+            ->select('*')
+            ->get();
+        $productsuplier = DB::table('product')->select('*')
+        ->leftJoin('supplier', 'supplier.id_supplier', '=', 'product.id_supplier')
+        ->where('name_supplier','=',$supplier)
+                            ->take(10)
+                            ->get();
+        return view('user.hang')
+        ->with(compact('categoryall'))
+        ->with(compact('productsuplier'))
+        ;
+    }
+
+    public function gioithieu(Request $request)
+    {
+        # code...
+        $productld =DB::table('product')
+        ->orderBy('id_product', 'desc')
+        ->take(5)
+        ->get();
+        return view('user.gioithieu')->with(compact('productld' ));
+ 
+    }
 }

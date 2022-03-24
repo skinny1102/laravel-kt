@@ -11,10 +11,8 @@
           <div class="footer_widget wow fadeInDown">
             <h2>Tag</h2>
             <ul class="tag_nav">
-              <li><a href="#">Giới thiệu</a></li>
-              <li><a href="#">Sản phẩm</a></li>
-              <li><a href="#">Hãng </a></li>
-              <li><a href="#">Liên hệ</a></li>
+              <li><a href="/gioithieu">Giới thiệu</a></li>
+              <li><a href="/hang">Hãng </a></li>
             </ul>
           </div>
         </div>

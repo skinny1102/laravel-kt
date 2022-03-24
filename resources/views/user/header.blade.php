@@ -3,7 +3,7 @@
   <ul>
     <li><a href="/">Home</a></li>
     <li><a href="">Giới thiệu</a></li>
-    <li><a href="">Hãng</a>
+    <li><a href="/hang">Hãng</a>
       <ul id="submenu">
         <li><a href="/">Asus</a></li>
         <li><a href="/">Dell</a></li>

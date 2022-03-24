@@ -21,6 +21,9 @@ Route::get('/product/search',[ProductController::class,'search']);
 Route::get('/product-details/{id}',  [HomeController::class, 'productdetails']);
 Route::resource('product',ProductController::class)->names('product');
 Route::resource('category',CategoryController::class)->names('category');
+
+Route::get('/hang',  [HomeController::class, 'categoryall']);
+Route::get('/gioithieu',  [HomeController::class, 'gioithieu']);
 Auth::routes();
 Route::get('/home',[HomeAdminController::class,'index']);
 
